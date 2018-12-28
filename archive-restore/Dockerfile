@@ -1,5 +1,5 @@
 # archive-restore
-# A utilizity for restoring a Minecraft server from an archive directory
+# A utility for restoring a Minecraft server from an archive directory
 FROM alpine
 
 MAINTAINER Jesse Pritchett <jesse.h.pritchett@gmail.com>
