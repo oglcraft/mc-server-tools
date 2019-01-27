@@ -26,15 +26,21 @@ if [ "$images" != "" ] ; then \
 
 # find current labeled version
 id=$(docker images -f=reference=$name:$label | awk 'NR>1 {print $3}')
-current=$(docker images | grep $id | awk '{print $2}' | head -n1)
+
+if [ "$id" != "" ] ; then \
+  current=$(docker images | grep $id | awk '{print $2}' | head -n1) \
+; fi
 
 # compare versions
 least=$(echo -e "$current\\n$version" | sort | head -n1)
+
 
 # if building newer version, mark latest
 if [ "$current" = "$least" ] ; then \
   latest=true \
 ; fi
+
+echo $id $current $least $latest
 
 # build the image
 args="--build-arg version=$version --build-arg type=$type"
@@ -44,4 +50,5 @@ if [ "$latest" = "true" ] ; then \
   args="$args -t $name:$label" \
 ; fi
 
-docker build https://github.com/$name.git $args
+docker build --rm https://github.com/$name.git $args
+docker image prune -f
