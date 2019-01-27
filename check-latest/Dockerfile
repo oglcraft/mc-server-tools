@@ -3,7 +3,7 @@ FROM alpine
 
 MAINTAINER Jesse Pritchett <jesse.h.pritchett@gmail.com>
 
-RUN apk --no-cache add jq
+RUN apk --no-cache add curl jq
 
 ADD *.sh .
 
