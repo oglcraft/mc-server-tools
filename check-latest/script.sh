@@ -14,5 +14,3 @@ url='https://launchermeta.mojang.com/mc/game/version_manifest.json'
 version=$(curl -s $url | jq -r ".latest.$type")
 
 echo version=$version > version.properties
-pwd
-ls -la
