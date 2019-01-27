@@ -5,7 +5,7 @@ MAINTAINER Jesse Pritchett <jesse.h.pritchett@gmail.com>
 
 RUN apk --no-cache add curl jq
 
-ADD *.sh .
+ADD *.sh /root
 WORKDIR /root
 
 ENTRYPOINT [ "sh", "./script.sh" ]
