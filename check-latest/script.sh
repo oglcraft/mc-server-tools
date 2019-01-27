@@ -1,11 +1,7 @@
 #!/usr/bin/env sh
 
 # parameters
-type=release
-
-if [ "$1" == "true" ] ; then \
-  type=snapshot \
-; fi
+type=$1
 
 # LauncherMeta
 url='https://launchermeta.mojang.com/mc/game/version_manifest.json'
