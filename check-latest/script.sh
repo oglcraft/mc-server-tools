@@ -11,4 +11,6 @@ if [ "$1" == "" ] ; then \
 url='https://launchermeta.mojang.com/mc/game/version_manifest.json'
 
 # get the latest version from LauncherMeta
-echo $(curl -s $url | jq -r ".latest.$type")
+version=$(curl -s $url | jq -r ".latest.$type")
+
+echo version=$version > version.properties
