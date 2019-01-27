@@ -3,7 +3,7 @@
 # parameters
 type=release
 
-if [ "$1" == "true" ] ; \
+if [ "$1" == "true" ] ; then \
   type=snapshot \
 ; fi
 
