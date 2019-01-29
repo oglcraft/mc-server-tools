@@ -42,6 +42,6 @@ docker run -dt \
   -v $path:/data \
   --name=$world \
   --restart=unless-stopped \
-  oglcraft/minecraft-server:$version \
-  -Xms2G -Xmx4G
+  -e JAVA_OPTS='-Xms4G -Xmx8g' \
+  oglcraft/minecraft-server:$version
 
