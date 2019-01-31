@@ -34,13 +34,10 @@ if [ "$id" != "" ] ; then \
 # compare versions
 least=$(echo -e "$current\\n$version" | sort | head -n1)
 
-
 # if building newer version, mark latest
 if [ "$current" = "$least" ] ; then \
   latest=true \
 ; fi
-
-echo $id $current $least $latest
 
 # build the image
 args="--build-arg version=$version --build-arg type=$type"
