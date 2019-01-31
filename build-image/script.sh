@@ -15,6 +15,8 @@ if [ "$snapshot" = true ] ; then \
   type=snapshot \
 ; fi
 
+echo $type $label
+
 # check versions in current Docker images
 images=$(docker images -f=reference=$name:$version | awk 'NR>1')
 
