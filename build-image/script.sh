@@ -15,8 +15,6 @@ if [ "$snapshot" = true ] ; then \
   type=snapshot \
 ; fi
 
-echo $type $label
-
 # check versions in current Docker images
 images=$(docker images -f=reference=$name:$version | awk 'NR>1')
 
@@ -42,8 +40,6 @@ least=$(echo "$current\\n$version" | sort | head -n1)
 if [ "$current" = "$least" ] ; then \
   latest=true \
 ; fi
-
-echo $id $current $least $latest
 
 # build the image
 args="--build-arg version=$version --build-arg type=$type"
