@@ -37,11 +37,11 @@ if [ "$exists" = "$world" ] ; then \
 echo Starting $world...
 
 # create new container
-docker run -d \
+docker run -dt \
   -p $port:25565 \
   -v $path:/data \
   --name=$world \
   --restart=unless-stopped \
-  oglcraft/minecraft-server:$version \
-  -Xms2G -Xmx4G
+  -e JAVA_OPTS='-Xms4G -Xmx8g' \
+  oglcraft/minecraft-server:$version
 
