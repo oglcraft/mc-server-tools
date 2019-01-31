@@ -39,6 +39,8 @@ if [ "$current" = "$least" ] ; then \
   latest=true \
 ; fi
 
+echo $id $current $least $latest
+
 # build the image
 args="--build-arg version=$version --build-arg type=$type"
 args="$args -t $name:$version"
