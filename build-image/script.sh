@@ -29,12 +29,14 @@ if [ "$images" != "" ] ; then \
 # find current labeled version
 id=$(docker images -f=reference=$name:$label | awk 'NR>1 {print $3}')
 
+current=''
+
 if [ "$id" != "" ] ; then \
   current=$(docker images | grep $id | awk '{print $2}' | head -n1) \
 ; fi
 
 # compare versions
-least=$(echo -e "$current\\n$version" | sort | head -n1)
+least=$(echo "$current\\n$version" | sort | head -n1)
 
 # if building newer version, mark latest
 if [ "$current" = "$least" ] ; then \
