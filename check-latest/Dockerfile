@@ -1,4 +1,4 @@
-# A utility for backing up a Minecraft server into an archive directory
+# A utility for checking for the latest Minecraft server version
 FROM alpine
 
 MAINTAINER Jesse Pritchett <jesse.h.pritchett@gmail.com>
