@@ -18,7 +18,7 @@ if [ "$snapshot" = true ] ; then \
 # check versions in current Docker images
 images=$(docker images -f=reference=$name:$version | awk 'NR>1')
 
-# if image exists, marke build as unstable
+# if image exists, mark build as unstable
 if [ "$images" != "" ] ; then \
   echo "A Docker image for $version already exists." && \
   exit 2 \
